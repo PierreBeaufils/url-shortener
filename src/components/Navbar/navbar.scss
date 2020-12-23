@@ -21,9 +21,17 @@
   background: $darkblue;
 }
 
+.header li {
+  width: 100%;
+}
+
 .header li a {
   display: block;
   padding: 20px 0;
+
+  &:hover {
+    color: darken(white, 10%);
+  }
 }
 
 .header .logo {
@@ -36,7 +44,8 @@
 
 .header .menu {
   clear: both;
-  transform: none;
+  //transform: none;
+  transform: translateX(-120%);
   transform-origin: top;
   transition: all 0.2s ease-out;
   background-color: $secondary-color;
@@ -95,14 +104,14 @@
 }
 
 /* menu btn */
-
 .header .menu-btn {
   display: none;
 }
 
 .header .menu-btn:checked~.menu {
   //max-height: 260px;
-  transform: translateX(-120%);
+  //transform: translateX(-120%);
+  transform: none;
 }
 
 .header .menu-btn:checked~.menu-icon .navicon {
@@ -133,11 +142,15 @@
   }
 
   .header li {
-    //float: left;
+    width: auto;
   }
 
   .header li a {
     padding: 10px 30px;
+
+    &:hover {
+      color: $secondary-color;
+    }
   }
 
   .header .menu {

@@ -1,7 +1,7 @@
 @import 'src/vars.scss';
 
 .homepage {
-  width: 100vw;
+  width: 100%;
 }
 
 // Intro
@@ -73,6 +73,7 @@
 .statistics-container {
   width: 100%;
   background-color: #EFF1F7;
+  padding-top: 20px;
 }
 
 .statistics {
@@ -134,6 +135,36 @@
     font-size: 24px;
     margin-bottom: 20px;
     ;
+  }
+}
+
+// links
+.shortLink {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #FFF;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+
+  &-full {
+    display: block;
+    border-bottom: 1px solid $gray;
+    padding-bottom: 10px;
+    overflow: hidden;
+  }
+
+  &-short {
+    display: block;
+    color: $primary-color;
+    padding: 10px 0;
+  }
+
+  .copy {
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -221,5 +252,30 @@
     background-color: $primary-color;
     top: 50%;
     left: 100%;
+  }
+
+  // links
+  .shortLink {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-full {
+      border-bottom: none;
+      padding-bottom: 0;
+      overflow: hidden;
+      width: 60%;
+    }
+
+    &-short {
+      width: 20%;
+      padding: 10px 20px;
+      width: 30%;
+    }
+
+    .copy {
+      width: auto;
+    }
   }
 }

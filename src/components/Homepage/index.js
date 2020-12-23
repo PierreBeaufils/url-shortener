@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import axios from 'axios';
 import './homepage.scss';
 
 import illustrationDesk from '../../images/illustration-working.svg';
@@ -6,6 +8,31 @@ import recordsIcon from '../../images/icon-detailed-records.svg';
 import customizableIcon from '../../images/icon-fully-customizable.svg';
 
 function Homepage() {
+  const API_URL = 'https://api.shrtco.de/v2/shorten?url=';
+
+  const [inputLink, setInputLink] = useState(null);
+  const [linksData, setLinks] = useState([]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    axios.post(`${API_URL}${inputLink}`)
+      .then((res) => {
+        const fullLink = res.data.result.original_link;
+        const shortLink = res.data.result.short_link;
+        const newLink = { fullLink, shortLink };
+
+        setLinks([...linksData, newLink]);
+      })
+  };
+
+  const copyToClipboard = (event) => {
+    const link = (event.target.previousSibling.outerText);
+    navigator.clipboard.writeText(link);
+
+    event.target.innerText = 'Copied !';
+  }
+
   return (
     <main className="homepage">
       <div className="intro">
@@ -20,11 +47,22 @@ function Homepage() {
       </div>
 
       <div className="shortener">
-        <input type="text" placeholder="Shorten a link here..." />
-        <button className="button submit">Shorten it!</button>
+        <form onSubmit={handleSubmit}>
+          <input type="text" placeholder="Shorten a link here..." required onChange={(event) => setInputLink(event.target.value)} />
+          <button type="submit" className="button submit">Shorten it!</button>
+        </form>
       </div>
 
       <div className="statistics-container">
+
+        {linksData.map((link) => (
+          <div className="shortLink" key={link.shortLink}>
+            <a href={link.fullLink} className="shortLink-full">{link.fullLink}</a>
+            <a href={link.fullLink} className="shortLink-short">{link.shortLink}</a>
+            <button className="button copy" onClick={copyToClipboard}>Copy</button>
+          </div>
+        ))}
+
         <div className="statistics">
           <h2>Advanced Statistics</h2>
           <p>Track how your links are performing across the web with our advanced dashboard</p>
