@@ -1,61 +1,166 @@
 @import 'src/vars.scss';
 
-header {
-  padding: 30px 20px;
-}
-
 .header {
+  background-color: #fff;
+  width: 100%;
+  padding: 10px 20px;
+  position: relative;
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
-  z-index: 50;
-}
-
-.hamburger {
-  cursor: pointer;
-}
-
-.menu-line {
-  height: 3px;
-  width: 23px;
-  background-color: $grayish;
-  margin: 6px;
-}
-
-.menu {
-  z-index: 1;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
   align-items: center;
+  flex-flow: row nowrap;
+
+  & h2 {
+    padding: 0;
+  }
+}
+
+.header ul {
+  list-style: none;
+  overflow: hidden;
+  background: $darkblue;
+}
+
+.header li a {
+  display: block;
+  padding: 20px 0;
+}
+
+.header .logo {
+  display: block;
+  //float: left;
+  font-size: 2em;
+}
+
+/* menu */
+
+.header .menu {
+  clear: both;
+  transform: none;
+  transform-origin: top;
+  transition: all 0.2s ease-out;
   background-color: $secondary-color;
   color: #fff;
   border-radius: 10px;
-  margin-top: 20px;
   padding: 20px;
+  text-align: center;
   font-weight: 700;
-  font-size: 18px;
-  transform: translateX(-120%);
-  transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-
-  &-link {
-    text-align: center;
-    margin: 17px 0;
-    width: 100%
-  }
-
-  &-separator {
-    height: 1px;
-    background-color: $grayish;
-  }
+  width: 90%;
+  position: absolute;
+  right: 5%;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
 }
 
-.show {
-  transform: translateX(0);
+/* menu icon */
+
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  //float: right;
+  padding: 20px 20px;
+  position: relative;
+  //user-select: none;
+}
+
+.header .menu-icon .navicon {
+  background: $grayish;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
+}
+
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background-color: $grayish;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+
+.header .menu-btn {
+  display: none;
+}
+
+.header .menu-btn:checked~.menu {
+  //max-height: 260px;
+  transform: translateX(-120%);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon {
+  background: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked~.menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+  top: 0;
 }
 
 @media (min-width: 750px) {
-  .hamburger {
+  .header {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    & h2 {
+      padding: 20px 0;
+    }
+  }
+
+  .header li {
+    //float: left;
+  }
+
+  .header li a {
+    padding: 10px 30px;
+  }
+
+  .header .menu {
+    transform: none;
+    clear: both;
+    //float: right;
+    max-height: none;
+    color: $grayish;
+    background-color: #FFF;
+    flex-flow: row nowrap;
+    position: static;
+    width: auto;
+  }
+
+  .header .menu-icon {
     display: none;
+  }
+
+  .menu .button {
+    padding: 10px 25px;
+  }
+
+  .header .menu-btn:checked~.menu {
+    transform: none;
   }
 }
