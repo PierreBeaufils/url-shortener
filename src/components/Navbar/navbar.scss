@@ -4,6 +4,11 @@
   background-color: #fff;
   width: 100%;
   padding: 10px 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
 
   & h2 {
     padding: 0;
@@ -23,7 +28,7 @@
 
 .header .logo {
   display: block;
-  float: left;
+  //float: left;
   font-size: 2em;
 }
 
@@ -40,14 +45,22 @@
   padding: 20px;
   text-align: center;
   font-weight: 700;
+  width: 90%;
+  position: absolute;
+  right: 5%;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
 }
 
 /* menu icon */
 
 .header .menu-icon {
   cursor: pointer;
-  //display: inline-block;
-  float: right;
+  display: inline-block;
+  //float: right;
   padding: 20px 20px;
   position: relative;
   //user-select: none;
@@ -120,7 +133,7 @@
   }
 
   .header li {
-    float: left;
+    //float: left;
   }
 
   .header li a {
@@ -130,10 +143,13 @@
   .header .menu {
     transform: none;
     clear: both;
-    float: right;
+    //float: right;
     max-height: none;
     color: $grayish;
     background-color: #FFF;
+    flex-flow: row nowrap;
+    position: static;
+    width: auto;
   }
 
   .header .menu-icon {

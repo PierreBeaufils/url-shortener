@@ -1,3 +1,225 @@
 @import 'src/vars.scss';
 
-.homepage {}
+.homepage {
+  width: 100vw;
+}
+
+// Intro
+.intro {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.intro-text {
+  padding: 30px 0;
+  order: 2;
+
+  & p {
+    line-height: 1.5;
+    color: $grayish;
+    padding: 20px 0;
+  }
+}
+
+.intro-img {
+  text-align: center;
+  width: auto;
+  overflow: hidden;
+
+  & img {
+    width: 100%;
+  }
+}
+
+// Shortener
+.shortener {
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: $secondary-color;
+
+  & input {
+    padding: 20px 15px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+
+    &::placeholder {
+      color: $grayish;
+      font-weight: 600;
+    }
+  }
+
+  & .submit {
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 16px;
+    padding: 20px 15px;
+  }
+}
+
+// statistics
+.statistics-container {
+  width: 100%;
+  background-color: #EFF1F7;
+}
+
+.statistics {
+  width: 90%;
+  margin: 0 auto;
+  padding: 45px 0;
+  text-align: center;
+
+  & p {
+    color: $grayish;
+    line-height: 1.7;
+  }
+}
+
+.card {
+  background-color: #FFF;
+  border-radius: 5px;
+  margin: 100px 0;
+  padding: 40px 20px 40px 20px;
+  position: relative;
+
+  &-image {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $secondary-color;
+    border-radius: 50px;
+    padding: 22px;
+    width: auto;
+  }
+}
+
+.second-card::before,
+.first-card::before {
+  content: '';
+  z-index: 0;
+  position: absolute;
+  height: 100px;
+  width: 6px;
+  background-color: $primary-color;
+  top: 100%;
+}
+
+// footer
+.downsection {
+  width: 100%;
+  background-color: $secondary-color;
+  text-align: center;
+
+  &-content {
+    width: 90%;
+    margin: 0 auto;
+    padding: 80px 0;
+  }
+
+  & h2 {
+    color: #FFF;
+    font-size: 24px;
+    margin-bottom: 20px;
+    ;
+  }
+}
+
+@media (min-width: 750px) {
+  .homepage {
+    //max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  // Intro
+  .intro {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    flex-flow: row nowrap;
+    text-align: left;
+    margin: 0 auto;
+  }
+
+  .intro-text {
+    order: 1;
+    //padding-right: 40px;
+    max-width: 500px;
+
+    & h1 {
+      font-size: 45px;
+    }
+  }
+
+  .intro-img {
+    order: 2;
+    text-align: right;
+
+    & img {
+      width: 80%;
+    }
+  }
+
+  // Shortener
+  .shortener {
+    max-width: 1200px;
+    margin-top: 60px;
+    vertical-align: middle;
+
+    & input {
+      font-size: 16px;
+      display: inline;
+      width: calc(100% - 168px);
+      margin-right: 15px;
+    }
+
+    & .submit {
+      width: 153px;
+      display: inline;
+      font-size: 16px;
+      margin-top: 0;
+      padding: 20px 20px;
+    }
+  }
+
+  // statistics
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .card {
+    width: 300px;
+    margin: 100px 20px;
+  }
+
+  .second-card {
+    margin: 130px 20px 70px 20px;
+  }
+
+  .third-card {
+    margin: 160px 20px 40px 20px;
+  }
+
+  .second-card::before,
+  .first-card::before {
+    height: 6px;
+    width: 40px;
+    background-color: $primary-color;
+    top: 50%;
+    left: 100%;
+  }
+}

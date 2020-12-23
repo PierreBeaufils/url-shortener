@@ -166,7 +166,7 @@ button {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Nunito', 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -178,10 +178,23 @@ code {
     monospace;
 }
 
+h1 {
+  color: $darkblue;
+  font-size: 32px;
+  font-weight: 700;
+}
+
 h2 {
   color: $darkblue;
   font-size: 30px;
   font-weight: 700;
+}
+
+h3 {
+  color: $darkblue;
+  font-weight: 700;
+  font-size: 22px;
+  padding: 40px 0 20px 0;
 }
 
 .button {
@@ -190,6 +203,7 @@ h2 {
   padding: 13px 20px;
   letter-spacing: 1px;
   font-weight: 700;
+  font-size: 16px;
   color: #FFF;
   background-color: $primary-color;
   transition: all 150ms ease;
